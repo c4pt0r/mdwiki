@@ -1,13 +1,12 @@
-<!doctype html> 
+{% extends "head.html" %}
+{% block body %}
 
-<html>
-<head>  
-</head>
-<body>
-
-<h1>History of {{path}}</h1>
-<hr>
- 
 </body>
 
+<h2> Recent Changes </h2>
+<hr/>
+{% for page in versions %}
+    <li> <a href="/wiki/{{ page.page }}?ver={{ page.id }}">{{ page.page }}#{{ page.id }}</a> by <a href="/wiki/{{ page.editor }}">{{ page.editor }}</a> at  {{ page.date }} </li>
+{% endfor %}
 </html>
+{% endblock %}

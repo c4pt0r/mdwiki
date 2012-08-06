@@ -84,6 +84,19 @@ def get_page_content(page, version = -1):
             return content, True
     return content, False
 
+def get_version_list(page):
+    content_list = []
+    filename = check_or_create_dir(WIKI_PATH + page) + '/' + 'data.json'
+    if os.path.exists(filename):
+        with open(filename) as fp:
+            content_list = json.loads(fp.read())
+            cnt = 0
+            for i in content_list:
+                i['id'] = cnt
+                i['page'] = page
+                cnt += 1
+    return content_list
+
 def edit(page, content, editor = 'sysop'):
     obj = {
         'content' : content,
@@ -172,6 +185,9 @@ def wiki_page(page):
     usr = session.get('username', None)
     return render_template('page.html', path = page,  content = content, is_exists = is_exists, usr=usr)
 
+@app.route('/version/<path:page>', methods=['GET'])
+def version_page(page):
+     return render_template('version.html', versions = get_version_list(page))
 
 @app.route('/edit/<path:page>', methods=['GET', 'POST'])
 def edit_page(page):
