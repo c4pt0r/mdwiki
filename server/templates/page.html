@@ -2,10 +2,11 @@
 {% block body %}
 <div id="content">
 {% if is_exists %}
-  <div id="src" style="display:none">{{ content.content|safe }} </div>
-  <div id="html"></div>
+	<div id="src" style="display:none">{{ content.content|safe }} </div>
+	<div id="html"></div>
 {% else %}
-  <a href="/edit/{{path}}">Create</a>
+	<hr/>
+	  <h3 style="font-style: italic;">No such page, what about <a href="/edit/{{path}}">Create</a> it?</h3>
 {% endif %}
 </div>
 </div>

@@ -16,6 +16,24 @@ def check_or_create_dir(path_name):
 
     os.makedirs(path_name)
     return path_name
+#recent operations
+
+def get_recent():
+    filename = check_or_create_dir(WIKI_PATH) + '.recent.json'
+    recent = []
+    if os.path.exists(filename):
+        with open(filename, 'r') as fp:
+            recent = json.loads(fp.read())
+    recent.sort(key=lambda x: -x['id'])
+    return recent
+
+def write_to_recent(item):
+    recent = get_recent()
+    item['id'] = len(recent)
+    recent.append(item)
+    filename = check_or_create_dir(WIKI_PATH) + '.recent.json'
+    with open(filename, 'w') as fp: 
+        fp.write(json.dumps(recent))
 
 #user operations
 def get_members():
@@ -84,6 +102,7 @@ def edit(page, content, editor = 'sysop'):
     content_list.append(obj)
     with open(filename, 'w') as fp:
         fp.write(json.dumps(content_list))
+        write_to_recent({'page':page, 'editor':obj['editor'], 'date': obj['date']})
         return True
 
     return False
@@ -134,6 +153,10 @@ def members_page():
     return render_template('members.html', members = members)
 
 
+@app.route('/recent')
+def recent_page():
+    return render_template('recent.html', recent = get_recent())
+
 @app.route('/wiki/<path:page>', methods=['GET'])
 def wiki_page(page):
     version = int(request.args.get('ver', '-1'))
@@ -157,7 +180,7 @@ def edit_page(page):
     # post to edit page
     else:
         content = request.form.get('content','')
-        edit(page, content)
+        edit(page, content, usr)
         return redirect( 'wiki/' + page)
 
 
