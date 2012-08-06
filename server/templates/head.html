@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html>
+<head>
+<link href="/static/markdown.css" rel="stylesheet"></link>
+<link href="/static/main.css" rel="stylesheet"></link>
+
+<link href='http://fonts.googleapis.com/css?family=Average|Lusitana:700' rel='stylesheet' type='text/css'>
+ <script type="text/javascript" src="/static/Markdown.Converter.js"></script>
+ <script type="text/javascript" src="/static/Markdown.Sanitizer.js"></script>
+ <script type="text/javascript" src="/static/Markdown.Editor.js"></script>
+<style>
+pre {
+padding: 7px 30px;
+margin: 15px -30px 0 0px;
+line-height: 1.3;
+}
+</style>
+
+
+</head>
+<body> 
+
+<div id="container">
+	<div class= "head">
+		<div class="banner"><a href="/" style="color:black; text-decoration:none">MDWiki</a></div>  
+	{% if path %}
+	<a href="/edit/{{path}}">Edit</a> // 
+	{% endif %}
+	<a href="/recent">Recent Changes</a> //
+	<a href="/members">Members</a> //
+	<a href="/search">Search</a>
+{% if usr %}
+	<div style="float:right">{{usr}} <a href="/logout"> Logout </a></div>
+{% else %}
+	<div style="float:right"> <a href="/login"> Login </a> | <a href="/register"> Register </a></div>
+{% endif %}
+</div>
+{% block body %}
+{% endblock %}

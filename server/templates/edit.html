@@ -6,7 +6,7 @@
 <head>
 <link href="/static/markdown.css" rel="stylesheet"></link>
 <link href="/static/demo.css" rel="stylesheet"></link>
-
+<link href="/static/main.css" rel="stylesheet"></link>
  <script type="text/javascript" src="/static/Markdown.Converter.js"></script>
  <script type="text/javascript" src="/static/Markdown.Sanitizer.js"></script>
  <script type="text/javascript" src="/static/Markdown.Editor.js"></script>
@@ -15,11 +15,27 @@
  	float:left;
  	width: 40%;
  }
+h2{
+    font-style: italic;
+}
  </style>
 </head>
 <body>
+<div class= "head">
+    <a href="/wiki/{{path}}">Back</a> // 
+    <a href="/recent">Recent Changes</a> //
+    <a href="/members">Members</a> //
+    <a href="/search">Search</a>
 
-<h1>{{path}}</h1>
+
+    {% if usr %}
+    <div style="float:right">{{usr}} <a href="/logout"> Logout </a></div>
+{% else %}
+    <div style="float:right"> <a href="/login"> Login </a> | <a href="/register"> Register </a></div>
+{% endif %}
+
+</div>
+<h2>{{path}}</h2>
 <hr>
 <form action="/edit/{{path}}" method=POST> 
 

@@ -1,33 +1,8 @@
-<!doctype html>
-
-<html>
-<head>
-<link href="/static/markdown.css" rel="stylesheet"></link>
-
- <script type="text/javascript" src="/static/Markdown.Converter.js"></script>
- <script type="text/javascript" src="/static/Markdown.Sanitizer.js"></script>
- <script type="text/javascript" src="/static/Markdown.Editor.js"></script>
-<style>
-
-html,body, #container { height: 100%; }
-body > #container { height: auto; min-height: 100%; } 
-#footer {clear: both;position: relative;z-index: 10;height:30px;margin-top: -40px;} 
-#content { padding-bottom:30px; } 
-small {float: left;font-size: 18px; color: #101010}
-</style>
-
-</head>
-<body>
-
-<div id="container">
+{% extends "head.html" %}
+{% block body %}
 <div id="content">
-	
-<div class= "head">
-	<a href="/edit/{{path}}">Edit</a>
-</div>
-
 {% if is_exists %}
-  <div id="src" style="display:none">{{ content.content }} </div>
+  <div id="src" style="display:none">{{ content.content|safe }} </div>
   <div id="html"></div>
 {% else %}
   <a href="/edit/{{path}}">Create</a>
@@ -39,12 +14,14 @@ small {float: left;font-size: 18px; color: #101010}
 <div id="footer"> <small> {{path}} by {{content.editor}} at {{content.date}}</small></div>
 {% endif %}
 <script>
+
 var converter = new Markdown.Converter();
 var srcObj = document.getElementById('src');
 var htmlObj = document.getElementById('html');
-htmlObj.innerHTML = converter.makeHtml(srcObj.innerHTML);
+htmlObj.innerHTML = converter.makeHtml(unescape(srcObj.innerHTML));
 </script>
 
 </body>
 
 </html>
+{% endblock %}

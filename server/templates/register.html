@@ -1,0 +1,20 @@
+{% extends "head.html" %}
+{% block body %}
+<h3>Register</h3>
+<hr>
+<div style="color:red">{{msg}}</div>
+<form action="/register" method=POST> 
+
+    username <input type="text" name="uname" /> <br/>
+    password <input type="password" name="pwd" /> <br/>
+	confirm&nbsp;&nbsp;  <input type="password" />
+     <br/>
+	<input type="submit">
+</form>  
+
+ 
+
+</body>
+
+</html>
+{% endblock %}
