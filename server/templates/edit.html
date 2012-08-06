@@ -1,0 +1,46 @@
+<!doctype html>
+
+<!doctype html>
+
+<html>
+<head>
+<link href="/static/markdown.css" rel="stylesheet"></link>
+<link href="/static/demo.css" rel="stylesheet"></link>
+
+ <script type="text/javascript" src="/static/Markdown.Converter.js"></script>
+ <script type="text/javascript" src="/static/Markdown.Sanitizer.js"></script>
+ <script type="text/javascript" src="/static/Markdown.Editor.js"></script>
+ <style>
+ form {
+ 	float:left;
+ 	width: 40%;
+ }
+ </style>
+</head>
+<body>
+
+<h1>{{path}}</h1>
+<hr>
+<form action="/edit/{{path}}" method=POST> 
+
+	 <div class="wmd-panel">
+        <div id="wmd-button-bar-second"></div> 
+        <textarea class="wmd-input" name="content" id="wmd-input-second">{{ content.content }}</textarea>
+     </div>
+	<input type="submit">
+</form>  
+
+
+        <div id="wmd-preview-second" style="float:right" class="wmd-panel wmd-preview"></div>
+
+ <script type="text/javascript">
+            (function () {
+                var converter1 = Markdown.getSanitizingConverter();
+                var editor1 = new Markdown.Editor(converter1,  "-second");
+                editor1.run();     
+            })();
+        </script>
+
+</body>
+
+</html>
