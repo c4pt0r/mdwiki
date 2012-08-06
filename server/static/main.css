@@ -1,14 +1,13 @@
- .head{
-    font-style: italic; 
+ .head{ 
     font-size: 17px;
     font-family: 'Georgia', serif;
 }
 
 html,body, #container { height: 100%; }
 body > #container { height: auto; min-height: 100%; } 
-#footer {clear: both;position: relative;z-index: 10;height:30px;margin-top: -40px;} 
+#footer {clear: both;position: relative;z-index: 10;height:30px;margin-top: -50px;} 
 #content { padding-bottom:15x; margin-top:15px;} 
-small {
+#footer small {
 	float: left;
 	font-size: 18px; 
 	color: grey;
@@ -20,7 +19,16 @@ a {
 }
 
 .banner{
-	font-family: 'Lusitana', serif;
-	font-size:30px;
+	margin-bottom:10px;
+}
+.banner a{
+	font-family: 'Average', serif;
+	font-size:40px;
 	margin-bottom: 5px;
+	margin-right:20px;
+}
+.banner small{
+	color: grey;
+	font-family: 'Average', serif;
+	font-style: italic;;
 }
