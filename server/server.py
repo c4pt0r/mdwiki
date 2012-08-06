@@ -5,7 +5,7 @@ import sys
 import json
 import time 
 from flask import Flask, render_template, redirect, url_for, request, session
-
+import search
 app = Flask(__name__)
 
 WIKI_PATH = os.path.abspath(os.path.dirname(__name__)) + '/wiki/'
@@ -103,6 +103,7 @@ def edit(page, content, editor = 'sysop'):
     with open(filename, 'w') as fp:
         fp.write(json.dumps(content_list))
         write_to_recent({'page':page, 'editor':obj['editor'], 'date': obj['date']})
+        search.add_to_index(obj['content'],page)
         return True
 
     return False
@@ -152,6 +153,13 @@ def members_page():
     members = [i[0] for i in get_members()]
     return render_template('members.html', members = members)
 
+@app.route('/search')
+def search_page():
+    q = request.args.get('q', '')
+    res = []
+    if q != '':
+        res = search.index.get(q.lower(),[])
+    return render_template('search.html', result = res, q= q)
 
 @app.route('/recent')
 def recent_page():
