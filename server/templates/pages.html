@@ -1,0 +1,12 @@
+{% extends "head.html" %}
+{% block body %}
+
+</body>
+
+<h2> Pages </h2>
+<hr/>
+{% for page in pages %}
+    <li> <a href="/wiki/{{ page }}">{{ page }}</a> </li>
+{% endfor %}
+</html>
+{% endblock %}
