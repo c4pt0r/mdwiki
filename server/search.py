@@ -6,12 +6,6 @@ import json
 
 seg = SEG()
 WIKI_PATH = os.path.abspath(os.path.dirname(__name__)) + '/wiki/'
-def cuttest(text):
-    wlist = seg.cut(text)
-    wlist.reverse()
-    tmp = " | ".join(wlist)
-    print tmp
-    print "================================"
 
 def get_data_files():
 	for parent, dirname, filenames in os.walk(WIKI_PATH):

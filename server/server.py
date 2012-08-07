@@ -18,6 +18,12 @@ def check_or_create_dir(path_name):
     return path_name
 #recent operations
 
+def get_data_files():
+    for parent, dirname, filenames in os.walk(WIKI_PATH):
+        for filename in filenames:
+            if filename == 'data.json':
+                yield os.path.join(parent, filename)
+
 def get_recent():
     filename = check_or_create_dir(WIKI_PATH) + '.recent.json'
     recent = []
@@ -128,6 +134,10 @@ def index(): return redirect('/wiki/index')
 @app.route('/wiki/')
 def wikiindex(): return redirect('/wiki/index')
 
+@app.route('/pages', methods=['GET'])
+def get_pages():
+    pages = [page.split(WIKI_PATH)[1].replace('/data.json', '') for page in get_data_files()]
+    return render_template('pages.html', pages=pages)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login_page():
