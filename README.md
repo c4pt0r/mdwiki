@@ -21,8 +21,8 @@ MDWiki
 
 ###Easy Deploy
 
-$ easy_install flask
-$ ./python server.py
+    $ easy_install flask  
+    $ ./python server.py
 
 ---
 
