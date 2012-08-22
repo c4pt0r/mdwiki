@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
 import os
-import sys    
+import sys
 import json
-import time 
+import time
 from flask import Flask, render_template, redirect, url_for, request, session
 import search
 app = Flask(__name__)
@@ -38,13 +38,13 @@ def write_to_recent(item):
     item['id'] = len(recent)
     recent.append(item)
     filename = check_or_create_dir(WIKI_PATH) + '.recent.json'
-    with open(filename, 'w') as fp: 
+    with open(filename, 'w') as fp:
         fp.write(json.dumps(recent))
 
 #user operations
 def get_members():
     filename = check_or_create_dir(WIKI_PATH) + '.users.json'
-    
+
     usrs = []
     if os.path.exists(filename):
         with open(filename, 'r') as fp:
@@ -69,7 +69,7 @@ def register(uname, pwd):
         with open(filename, 'w') as fp:
             fp.write(json.dumps(usrs))
             return True
-    return False 
+    return False
 
 def get_page_content(page, version = -1):
     content = {
@@ -206,7 +206,7 @@ def edit_page(page):
         return redirect( '/login')
     if request.method == 'GET':
         version = int(request.args.get('ver', '-1'))
-        content, _ = get_page_content(page, version) 
+        content, _ = get_page_content(page, version)
 
         usr = session.get('username', None)
         return render_template('edit.html', path = page, content = content, usr=usr)
@@ -217,6 +217,18 @@ def edit_page(page):
         edit(page, content, usr)
         return redirect( 'wiki/' + page)
 
+@app.route('/api/edit/<path:page>', methods=['POST'])
+def api_edit_page(page):
+    data = request.form.get('data', '')
+    try:
+        data = json.loads(data)
+    except:
+        return 'FAIL'
+    content = data.get('content', None)
+    usr = data.get('user', None)
+    if content and usr and edit(page, content, usr):
+        return 'OK'
+    return 'FAIL'
 
 if __name__ == '__main__':
     app.secret_key = 'S3cr31k37'
