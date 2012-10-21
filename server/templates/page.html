@@ -1,5 +1,6 @@
 {% extends "head.html" %}
 {% block body %}
+
 <div id="content">
 {% if is_exists %}
 	<div id="src" style="display:none">{{ content.content|safe }} </div>
@@ -14,7 +15,14 @@
 {% if is_exists %}
 <div id="footer"> <small><a href="/version/{{path}}">Revisions </a> | {{path}} by {{content.editor}} at {{content.date}}</small></div>
 {% endif %}
+
+<link rel="stylesheet" href="http://yandex.st/highlightjs/7.3/styles/default.min.css">
+<script src="http://yandex.st/highlightjs/7.3/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
 <script>
+
+
 
 var converter = new Markdown.Converter();
 var srcObj = document.getElementById('src');
