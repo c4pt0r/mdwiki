@@ -11,7 +11,7 @@ MDWiki
 ###愿景
 *打造一个简洁，简洁，不能再简洁的知识记录系统！ -- c4pt0r*
 
-目前部署在[这里](http://wiki.0xffff.me:5000/) , 作为我的个人Wiki使用
+目前部署在[这里](http://wiki.huangdx.net/) , 作为我的个人Wiki使用
 
 ###Features
 
