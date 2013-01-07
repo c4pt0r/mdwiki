@@ -1,19 +1,54 @@
  .head{ 
     font-size: 17px;
     font-family: 'Georgia', serif;
+    padding-top : 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.head img {
+	margin: -8px;
 }
 
-html,body, #container { height: 100%; }
-body > #container { height: auto; min-height: 100%; } 
-#footer {clear: both;position: relative;z-index: 10;height:30px;margin-top: -50px;} 
-#content { padding-bottom:15x; margin-top:15px;} 
+html,body { 
+	height: 100%;
+	margin: 0;
+ 	padding: 0;
+ 	height:100%;
+}
+
+#main {
+ position: relative;
+ min-height:100%;
+ _height:100%; 
+}
+
+body > #container { 
+	height: auto;
+	min-height: 100%;
+}
+
+#footer {
+ position: absolute;
+ bottom: 0;
+ height: 30px;
+ width: 100%;
+ text-align: right;
+}
+
+#content {
+	font-size: 18px;
+	margin-top:15px;
+	padding: 0px 15px 30px 15px;
+}
+
 #footer small {
-	float: left;
 	font-size: 18px; 
 	color: grey;
 	width:100%;
-	text-align: right;
+	padding-left: 15px;
+ 	padding-right: 15px;
 }
+
 a {
 	color: #004B6B;
 }
@@ -21,6 +56,7 @@ a {
 .banner{
 	margin-bottom:10px;
 }
+
 .banner a{
 	font-family: 'Average', serif;
 	font-size:40px;
