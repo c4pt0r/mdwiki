@@ -36,13 +36,13 @@ body > #container {
 }
 
 #content {
-	font-size: 18px;
+	font-size: 16px;
 	margin-top:15px;
 	padding: 0px 15px 30px 15px;
 }
 
 #footer small {
-	font-size: 18px; 
+	font-size: 16px; 
 	color: grey;
 	width:100%;
 	padding-left: 15px;
