@@ -36,6 +36,7 @@ h2{
 {% endif %}
 
 </div>
+<div id="content">
 <h2>{{path}}</h2>
 <hr>
 <form action="/edit/{{path}}" method=POST> 
@@ -49,7 +50,7 @@ h2{
 
 
         <div id="wmd-preview-second" style="float:right" class="wmd-panel wmd-preview"></div>
-
+</div>
  <script type="text/javascript">
             (function () {
                 var converter1 = Markdown.getSanitizingConverter();
