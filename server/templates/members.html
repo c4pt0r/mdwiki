@@ -1,12 +1,12 @@
 {% extends "head.html" %}
 {% block body %}
-
-</body>
-
+<div id="content">
 <h2> Members </h2>
 <hr/>
 {% for usr in members %}
     <li><a href="/wiki/user/{{usr}}">{{ usr }}</a></li>
 {% endfor %}
+</div>
+</body>
 </html>
 {% endblock %}

@@ -2,11 +2,12 @@
 {% block body %}
 
 </body>
-
+<div id="content">
 <h2> Pages </h2>
 <hr/>
 {% for page in pages %}
     <li> <a href="/wiki/{{ page }}">{{ page }}</a> </li>
 {% endfor %}
+</div>
 </html>
 {% endblock %}

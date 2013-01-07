@@ -1,12 +1,14 @@
 {% extends "head.html" %}
 {% block body %}
 
-</body>
-
+<div id="content">
 <h2> Recent Changes </h2>
 <hr/>
 {% for page in versions %}
     <li> <a href="/wiki/{{ page.page }}?ver={{ page.id }}">{{ page.page }}#{{ page.id }}</a> by <a href="/wiki/{{ page.editor }}">{{ page.editor }}</a> at  {{ page.date }} </li>
 {% endfor %}
+</div>
+</body>
+
 </html>
 {% endblock %}

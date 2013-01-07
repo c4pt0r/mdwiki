@@ -1,12 +1,14 @@
 {% extends "head.html" %}
 {% block body %}
 
-</body>
-
+<div id="content">
 <h2> Recent Changes </h2>
 <hr/>
 {% for page in recent %}
     <li> <a href="/wiki/{{ page.page }}">{{ page.page }}</a> by <a href="/wiki/{{ page.editor }}">{{ page.editor }}</a> at  {{ page.date }} </li>
 {% endfor %}
+</div>
+
+</body>
 </html>
 {% endblock %}

@@ -1,5 +1,6 @@
 {% extends "head.html" %}
 {% block body %}
+<div id="content">
 <h3>Search</h3>
 <hr> 
 <form action="/search" method=GET> 
@@ -15,7 +16,7 @@
 <pre>{{r.content}}</pre>
     </li>
 {% endfor %}
-
+</div>
 </body>
 
 </html>
