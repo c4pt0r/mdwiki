@@ -22,8 +22,9 @@ MDWiki
 2020.10 Update: 
 TODO: 
 * 支持 TiDB / MySQL 作为后端存储
-* 更现代的 UI
+* 更现代的 UI （H5）
 * 更完善的用户系统
+* Move to Python3
 
 ###Easy Deploy
 
