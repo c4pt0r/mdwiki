@@ -3,15 +3,13 @@ MDWiki
 
 *MDWiki Makes Writing Easy*
 
-**这是c4pt0r的一个饭后娱乐项目**  
-
 欢迎watch, fork, 来者不据
 
 
 ###愿景
 *打造一个简洁，简洁，不能再简洁的知识记录系统！ -- c4pt0r*
 
-目前部署在[这里](http://wiki.huangdx.net/) , 作为我的个人Wiki使用
+2020.10 重新开始这个小项目，做一些更新
 
 ###Features
 
@@ -21,22 +19,13 @@ MDWiki
 * 支持简单的全文检索
 * 除了Flask，不依赖其他的第三方库
 
+2020.10 Update: 
+TODO: 
+* 支持 TiDB / MySQL 作为后端存储
+* 更现代的 UI
+* 更完善的用户系统
+
 ###Easy Deploy
 
     $ easy_install flask  
     $ ./python server.py
-
----
-
-###开发进度
-
-2012/8/6
-
-* first commit to github
-* 加入Recent List功能
-* 加入查看Members的功能
-* TODO:
-   * <s>Search Page</s> done
-   * <s>Revision Page</s> done
-   * Attachment
-   * image upload
