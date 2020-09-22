@@ -6,12 +6,12 @@ MDWiki
 欢迎watch, fork, 来者不据
 
 
-###愿景
+### 愿景
 *打造一个简洁，简洁，不能再简洁的知识记录系统！ -- c4pt0r*
 
 2020.10 重新开始这个小项目，做一些更新
 
-###Features
+### Features
 
 * 无需第三方数据库，所有数据都以文件形式保存
 * 每次提交都有保存
@@ -26,7 +26,7 @@ TODO:
 * 更完善的用户系统
 * Move to Python3
 
-###Easy Deploy
+### Easy Deploy
 
     $ easy_install flask  
     $ ./python server.py
