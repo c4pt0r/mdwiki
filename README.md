@@ -3,7 +3,7 @@ MDWiki
 
 *MDWiki Makes Writing Easy*
 
-欢迎watch, fork, 来者不据
+欢迎watch, fork, 来者不拒
 
 
 ### 愿景
